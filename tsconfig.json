@@ -3,10 +3,7 @@
       "module": "commonjs",
       "target": "ES6",
       "declaration": true,
-      "outDir": "./dist",
-      "types": [
-          "mocha"
-      ]
+      "outDir": "./dist"
     },
     "include": [
       "src/**/*"
