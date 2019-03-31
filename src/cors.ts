@@ -1,6 +1,6 @@
 import corswrapper = require('cors')
 
-export function cors(origin: string) {
+export function cors(origin: string = '*') {
     return function(_target, _key, descriptor) {
         const originalMethod = descriptor.value
         descriptor.value = function() {
