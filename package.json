@@ -1,7 +1,7 @@
 {
   "name": "gcf-decorators",
-  "version": "0.0.1",
-  "description": "Create a Flask-style framework for google cloud functions",
+  "version": "0.0.2",
+  "description": "Create a decorator-based framework for google cloud functions",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "dependencies": {
