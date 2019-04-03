@@ -83,3 +83,23 @@ export const helloWorldApi = {
   helloWorld: HelloWorldApi.helloWorld,
 }
 ```
+
+### Authorization
+
+Currently, this library only supports Basic Authentication.
+
+```typescript
+class HelloWorldApi {
+  @basicauth(process.env.SUPER_SECRET_PASSWORD)
+  @post() // anything other than a GET will automatically return a 404, with empty json
+  static async helloWorld(req, res) {
+    // Do cool POST things
+    return res.status(200).send('Hello world')
+  }
+}
+
+// In index.ts, do the following:
+export const helloWorldApi = {
+  helloWorld: HelloWorldApi.helloWorld,
+}
+```
