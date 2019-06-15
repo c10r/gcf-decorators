@@ -33,7 +33,7 @@ Google's [recommendation](https://cloud.google.com/functions/docs/writing/http#f
 
 ```typescript
 class HelloWorldApi {
-  @cors() // substitute you own domains here, default is '*'
+  @http.cors() // substitute you own domains here, default is '*'
   static async helloWorld(req, res) {
     return res.status(200).send('Hello world')
   }
@@ -51,7 +51,7 @@ Similarly for HTTP methods, Google's [official recommendation](https://github.co
 
 ```typescript
 class HelloWorldApi {
-  @post() // anything other than a GET will automatically return a 404, with empty json
+  @http.post() // anything other than a GET will automatically return a 404, with empty json
   static async helloWorld(req, res) {
     // Do cool POST things
     return res.status(200).send('Hello world')
@@ -68,7 +68,7 @@ More powerfully, by coupling this library with [tsc-parsers](https://www.npmjs.c
 
 ```typescript
 class HelloWorldApi {
-  @post({
+  @http.post({
     message: StringValidator, // Any non-string auto rejected with 400
     count: IntValidator,      // Any non-integer auto rejected with 400
   })
@@ -90,8 +90,8 @@ Currently, this library only supports Basic Authentication.
 
 ```typescript
 class HelloWorldApi {
-  @basicauth(process.env.SUPER_SECRET_PASSWORD)
-  @post() // anything other than a GET will automatically return a 404, with empty json
+  @auth.basicauth(process.env.SUPER_SECRET_PASSWORD)
+  @http.post() // anything other than a GET will automatically return a 404, with empty json
   static async helloWorld(req, res) {
     // Do cool POST things
     return res.status(200).send('Hello world')
